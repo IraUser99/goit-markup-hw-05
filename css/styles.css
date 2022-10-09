@@ -115,7 +115,7 @@ header {
     height: 4px;
     border-radius: 2px;
     background-color: var(--accent-color);
-    top: 77px;
+    bottom: 0;
 }
 
 .header .link {
@@ -253,12 +253,9 @@ header {
 }
 
 .modal {
-    display: flex;
-    justify-content: right;
-    position: absolute;
+    position: relative;
     width: 528px;
     height: 581px;
-    padding: 8px 8px;
     background-color: #FFFFFF;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
@@ -268,6 +265,10 @@ header {
 }
 
 .modal-close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -531,27 +532,41 @@ header {
     margin-bottom: 50px;
 }
 
-.card-container {
-    position: relative;
-    overflow: hidden;
-    z-index: 2;
-    width: 370px;
+.card-title {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 2;
+    letter-spacing: 0.06em;
+    margin-bottom: 4px;
+}
+
+.project-title {
+    font-size: 16px;
+    line-height: 1.88;
+    color: var(--primary-text-color)
+}
+
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 50px;
+}
+
+.card-container {   
     padding: 20px 24px;
     border-right: 1px solid #EEEEEE;
-    border-left: 1px solid #EEEEEE;  
+    border-left: 1px solid #EEEEEE;
     border-bottom: 1px solid #EEEEEE;
 }
 
 .project-cards {
     display: flex;
     flex-wrap: wrap;
-    /* justify-content: space-between; */
-    /* width: 370px; */
 }
 
 .project-cards a {
     display: block;
-    position: relative;
     transition-property: box-shadow;
     transition-duration: 250ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -562,36 +577,38 @@ header {
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
-.project a { 
+.project-overlay {
     position: relative;
-    transition-property: box-shadow;
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     overflow: hidden;
 }
 
-.project a:hover .project-overlay,
-.project a:focus .project-overlay {
-    transform: translatex(0);
+/* .project-overlay:hover .paragraph,
+.project-overlay:focus .paragraph {
+    transform: translateY(0);
+} */
+
+.project-cards a:hover .paragraph,
+.project-cards a:focus .paragraph {
+    transform: translateY(0);
 }
 
-.project-overlay {
-    position: absolute;
+.paragraph {
     top: 0;
-    width: 370px;
-    height: 294px;
+    left: 0;
+    position: absolute;
+    height: 100%;
     padding: 63px 24px;
+    opacity: 0, 9;
     margin: 0 auto;
     font-size: 18px;
     line-height: 1.56;
     letter-spacing: 0.03em;
     color: var(--lurge-title-color);
     background-color: rgba(33, 150, 243, 0.9);
-    z-index: 1;
-    transform: translatey(100%);
+    transform: translateY(100%);
     transition-property: transform;
     transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1)
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .project {
